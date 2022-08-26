@@ -1,0 +1,29 @@
+package org.example;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Main {
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        System.out.println("Hello World");
+        String connectionUrl =
+                "jdbc:sqlserver://192.168.10.13\\MSSQLSERVER:1433;"
+                        + "databaseName=Fomentamos;"
+                        + "user=sa;"
+                        + "password=nDUe7x&fKO^^;"
+                        + "encrypt=false;"
+                        + "trustServerCertificate=true;"
+                        + "IntegratedSecurity=true;"
+                        + "loginTimeout=30;";
+
+        try (Connection con = DriverManager.getConnection(connectionUrl);) {
+            // Code here.
+            System.out.println("Conexión exitosa");
+        }
+        // Handle any errors that may have occurred.
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
